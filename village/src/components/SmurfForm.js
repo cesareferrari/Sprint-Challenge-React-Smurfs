@@ -13,6 +13,7 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    this.props.addSmurf(this.state);
 
     this.setState({
       name: '',
@@ -22,6 +23,7 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
+    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
 
