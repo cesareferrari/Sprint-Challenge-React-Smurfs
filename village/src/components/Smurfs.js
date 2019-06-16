@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import Smurf from './Smurf';
+
+const SmurfList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+`;
+
 
 class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
+        <SmurfList>
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -19,7 +28,7 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
+        </SmurfList>
       </div>
     );
   }
