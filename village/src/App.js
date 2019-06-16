@@ -9,6 +9,7 @@ import Header from './components/Header';
 
 const AppWrapper = styled.div`
   background-color: #C9E8F4;
+  height: 100vw;
 `;
 
 
