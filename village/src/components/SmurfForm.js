@@ -25,8 +25,14 @@ const FormWrapper = styled.div`
     display: block;
     width: 250px;
     text-align: center;
-    margin: auto;
+    margin: 20px auto;
   }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
 `;
 
 class SmurfForm extends Component {
@@ -59,6 +65,8 @@ class SmurfForm extends Component {
   render() {
     return (
       <FormWrapper>
+        <h2>Add Smurf</h2>
+
         <form onSubmit={this.addSmurf}>
           <input
             type="text"
