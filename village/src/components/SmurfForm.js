@@ -1,4 +1,39 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+  width: 40%;
+  margin: 20px auto;
+
+  input[type="text"] {
+    font-size: 1rem;
+    padding: 6px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  button {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: .9rem;
+    background-color: #0D76A2;
+    padding: 10px 20px;
+    display: block;
+    width: 250px;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+`;
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -13,6 +48,7 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    this.props.addSmurf(this.state);
 
     this.setState({
       name: '',
@@ -22,34 +58,40 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
+    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
     return (
-      <div className="SmurfForm">
+      <FormWrapper>
+        <h2>Add Smurf</h2>
+
         <form onSubmit={this.addSmurf}>
           <input
+            type="text"
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
           <input
+            type="text"
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
           <input
+            type="text"
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
+          <button>Add to the village</button>
         </form>
-      </div>
+      </FormWrapper>
     );
   }
 }
